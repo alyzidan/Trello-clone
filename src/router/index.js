@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Board from '../views/Board.vue'
+import Task from '../views/Task.vue'
+
 
 Vue.use(VueRouter)
 
@@ -8,7 +11,14 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Board,
+    children:[
+      {
+        path: 'task/:id',
+        name: 'task',
+        component: Task
+      }
+    ]
   },
   {
     path: '/about',
